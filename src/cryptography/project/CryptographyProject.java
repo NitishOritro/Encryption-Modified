@@ -28,7 +28,7 @@ public class CryptographyProject
     public static void main(String[] args) throws IOException 
     {
         //String plaintext = "BANGLADESH BEAUTIFUL MY NUMBER 12#@&";
-        String plaintext = "ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKL";
+        String plaintext = "abcdEFGHIJklmnopqrstuvwxyz";
         /*int lengthOfPlaintext = plaintext.length();
         System.out.println("Length of plaintext is "+lengthOfPlaintext);
         LetterInNumber letterInNumberCheck = new LetterInNumber(plaintext.charAt(26));
@@ -67,7 +67,7 @@ public class CryptographyProject
         //System.out.println("Column is : " +column);
         
         //Call 2d rotor machine array
-        ciphertextGenerate = plaintextToCiphertext.generateCipherTextToRotorCiphertext(ciphertext, row, column);
+        ciphertextGenerate = plaintextToCiphertext.generateCipherTextToRotorCiphertext(plaintext ,ciphertext, row, column);
         
         System.out.println("Here Random key = "+n+"\nGenerate CipherText is : " +ciphertextGenerate);
     }

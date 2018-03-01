@@ -19,15 +19,21 @@ public class LetterInNumber
         //this.letter = letter;
         //this.number = number;
         int letterAsciiValue = (int) letter;
-        letterAsciiValue = letterAsciiValue - 64;
+        if(letterAsciiValue >= 97 && letterAsciiValue <= 122)
+        {
+            letterAsciiValue = letterAsciiValue - 70;
+        }
+        else if(letterAsciiValue >= 65 && letterAsciiValue <= 90)
+        {
+            letterAsciiValue = letterAsciiValue - 64;
+        }
         //System.out.println(letterAsciiValue);
         this.number = letterAsciiValue;
     }
     
     public LetterInNumber(int number) 
     {
-        //this.letter = letter;
-        //this.number = number;
+      
         int letterAsciiValue = number + 64;
         char asciiValueToCharacter = (char) letterAsciiValue;
         //System.out.println(asciiValueToCharacter);

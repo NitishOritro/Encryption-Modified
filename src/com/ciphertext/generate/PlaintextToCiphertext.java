@@ -38,7 +38,15 @@ public class PlaintextToCiphertext
                 LetterInNumber numberInLetter = new LetterInNumber(cipherValue);
                 
                 char cipherCharacter = numberInLetter.getLetter();
-                ciphertext = ciphertext + cipherCharacter;
+                if(Character.isLowerCase(plaintext.charAt(i)))
+                {
+                    cipherCharacter = Character.toLowerCase(cipherCharacter);
+                    ciphertext = ciphertext + cipherCharacter;
+                }
+                else
+                {
+                    ciphertext = ciphertext + cipherCharacter;
+                }
             }
             else if(plaintext.charAt(i) != ' ' || Character.isWhitespace(plaintext.charAt(i)))
             {
@@ -49,10 +57,11 @@ public class PlaintextToCiphertext
         return ciphertext;
     }
     
-    public String generateCipherTextToRotorCiphertext(String ciphertext, int row, int column)
+    public String generateCipherTextToRotorCiphertext(String plaintext, String ciphertext, int row, int column)
     {
         //Initialize a 2d array
         char ciphertextRotor [][] = new char [row][column];
+        char ciphertextLetterCheckRotor [][] = new char [row][column];
         int pointer = 0;
         
         int padding = ciphertext.length() % 16;
@@ -83,12 +92,33 @@ public class PlaintextToCiphertext
             //System.out.println(pointer);
         }
         
+        System.out.println("ciphertextRotor is");
+        
         for(i=0;i<row;i++)
         {
             for(j=0;j<column;j++)
             {
                 //ciphertextRotor [row][column] = plaintext.charAt(j);
                  System.out.print(" ("+i+" "+j+")"+ciphertextRotor [i][j]+"   ");
+            }
+            System.out.println();
+        }
+        
+        for(i=0;i<row;i++)
+        {
+            for(j=0;j<column;j++)
+            {
+                 ciphertextLetterCheckRotor[i][j] = ciphertextRotor [i][j];
+            }
+            System.out.println();
+        }
+        System.out.println("ciphertext LetterCheck Rotor is");
+        for(i=0;i<row;i++)
+        {
+            for(j=0;j<column;j++)
+            {
+                //ciphertextRotor [row][column] = plaintext.charAt(j);
+                 System.out.print(" ("+i+" "+j+")"+ciphertextLetterCheckRotor [i][j]+"   ");
             }
             System.out.println();
         }
@@ -114,7 +144,15 @@ public class PlaintextToCiphertext
                             cipherValue = 26;
                         }
                         LetterInNumber cipherInLetter = new LetterInNumber(cipherValue);
-                        ciphertextRotor[i][j] = cipherInLetter.getLetter();
+                        if(Character.isLowerCase(ciphertextLetterCheckRotor [i][j]))
+                        {
+                            ciphertextRotor[i][j] = Character.toLowerCase(cipherInLetter.getLetter());
+                            
+                        }
+                        else
+                        {
+                            ciphertextRotor[i][j] = cipherInLetter.getLetter();
+                        }
                     }
                     //ciphertext = ciphertext + cipherCharacter;
                     
@@ -140,6 +178,7 @@ public class PlaintextToCiphertext
         {
             for(j=0;j<column;j++)
             {
+                
                 ciphertextGenerate = ciphertextGenerate + ciphertextRotor [i][j];
             }
             ciphertextGenerate = ciphertextGenerate + ' ';
