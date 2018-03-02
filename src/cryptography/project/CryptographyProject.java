@@ -28,31 +28,21 @@ public class CryptographyProject
     public static void main(String[] args) throws IOException 
     {
         //String plaintext = "BANGLADESH BEAUTIFUL MY NUMBER 12#@&";
-        String plaintext = "abcdEFGHIJklmnopqrstuvwxyz";
-        /*int lengthOfPlaintext = plaintext.length();
-        System.out.println("Length of plaintext is "+lengthOfPlaintext);
-        LetterInNumber letterInNumberCheck = new LetterInNumber(plaintext.charAt(26));
-        System.out.println("Character number conversion is "+letterInNumberCheck.getNumber());
+        String plaintext = "";
+       
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        plaintext = br.readLine();
         
-        LetterInNumber numberInLetterCheck = new LetterInNumber(26);
-        System.out.println("Number conversion is in Character "+numberInLetterCheck.getLetter());
-        
-        Scanner input = new Scanner(System.in);*/
-        /*BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        plaintext = br.readLine();*/
-        System.out.println("Input Is : "+plaintext);
-        System.out.println("Length of Plaintext is "+plaintext.length());
         String ciphertext = "";
         String ciphertextGenerate = "";
         
         Random rand = new Random();
-        int n = rand.nextInt(3) + 3;
+        int key = rand.nextInt(3) + 3;
         
         PlaintextToCiphertext plaintextToCiphertext = new PlaintextToCiphertext();
-        ciphertext = plaintextToCiphertext.generateCipherText(plaintext, 4);
+        ciphertext = plaintextToCiphertext.generateCipherText(plaintext, key);
         int i,j,k,row=0,column=16;
         
-        //System.out.println("CipherText is : " +ciphertext);
         
         //Divide a row column accorfing to detect cipherRotor machine
         
@@ -69,7 +59,7 @@ public class CryptographyProject
         //Call 2d rotor machine array
         ciphertextGenerate = plaintextToCiphertext.generateCipherTextToRotorCiphertext(plaintext ,ciphertext, row, column);
         
-        System.out.println("Here Random key = "+n+"\nGenerate CipherText is : " +ciphertextGenerate);
+        System.out.println("Here Random key = "+key+"\nGenerate CipherText is : " +ciphertextGenerate);
     }
     
 }

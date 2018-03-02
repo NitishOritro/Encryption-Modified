@@ -53,7 +53,7 @@ public class PlaintextToCiphertext
                 ciphertext = ciphertext + plaintext.charAt(i);
             }
         }
-        System.out.println("CipherText is : " +ciphertext);
+        //System.out.println("CipherText is : " +ciphertext);
         return ciphertext;
     }
     
@@ -65,18 +65,18 @@ public class PlaintextToCiphertext
         int pointer = 0;
         
         int padding = ciphertext.length() % 16;
-        System.out.println(padding);
+        //System.out.println(padding);
         
         int paddIndexI = ciphertext.length() / 16; 
         int padIndexJ = ciphertext.length() % 16;
         
-        System.out.println("Number "+paddIndexI+" "+padIndexJ);
+        //System.out.println("Number "+paddIndexI+" "+padIndexJ);
         
         for(i=0;i<column;i++)
         {
             for(j=0;j<row;j++)
             {
-                if(pointer != ciphertext.length())
+                if(pointer <= ciphertext.length())
                 {
                     if(j == row-1 && i >= padding)
                     {
@@ -92,16 +92,16 @@ public class PlaintextToCiphertext
             //System.out.println(pointer);
         }
         
-        System.out.println("ciphertextRotor is");
+        //System.out.println("ciphertextRotor is");
         
         for(i=0;i<row;i++)
         {
             for(j=0;j<column;j++)
             {
                 //ciphertextRotor [row][column] = plaintext.charAt(j);
-                 System.out.print(" ("+i+" "+j+")"+ciphertextRotor [i][j]+"   ");
+                 //System.out.print(" ("+i+" "+j+")"+ciphertextRotor [i][j]+"   ");
             }
-            System.out.println();
+            //System.out.println();
         }
         
         for(i=0;i<row;i++)
@@ -110,17 +110,17 @@ public class PlaintextToCiphertext
             {
                  ciphertextLetterCheckRotor[i][j] = ciphertextRotor [i][j];
             }
-            System.out.println();
+            //System.out.println();
         }
-        System.out.println("ciphertext LetterCheck Rotor is");
+        //System.out.println("ciphertext LetterCheck Rotor is");
         for(i=0;i<row;i++)
         {
             for(j=0;j<column;j++)
             {
                 //ciphertextRotor [row][column] = plaintext.charAt(j);
-                 System.out.print(" ("+i+" "+j+")"+ciphertextLetterCheckRotor [i][j]+"   ");
+                 //System.out.print(" ("+i+" "+j+")"+ciphertextLetterCheckRotor [i][j]+"   ");
             }
-            System.out.println();
+            //System.out.println();
         }
         
         for(i=0;i<row;i++)
@@ -169,9 +169,9 @@ public class PlaintextToCiphertext
             for(j=0;j<column;j++)
             {
                 //ciphertextRotor [row][column] = plaintext.charAt(j);
-                 System.out.print(" ("+i+" "+j+")"+ciphertextRotor [i][j]+"   ");
+                 //System.out.print(" ("+i+" "+j+")"+ciphertextRotor [i][j]+"   ");
             }
-            System.out.println();
+            //System.out.println();
         }
         String ciphertextGenerate = "";
         for(i=0;i<row;i++)
@@ -184,7 +184,7 @@ public class PlaintextToCiphertext
             ciphertextGenerate = ciphertextGenerate + ' ';
         }
         
-        System.out.println("Generate CipherText is : " +ciphertextGenerate);
+        //System.out.println("Generate CipherText is : " +ciphertextGenerate);
         return ciphertextGenerate;
     }
        
