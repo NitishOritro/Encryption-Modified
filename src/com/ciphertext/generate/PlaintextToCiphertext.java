@@ -24,7 +24,7 @@ public class PlaintextToCiphertext
             if(Character.isLetter(plaintext.charAt(i)) && plaintext.charAt(i) != ' ')
             {
                 LetterInNumber letterInNumber = new LetterInNumber(plaintext.charAt(i));
-                int cipherValue =  (letterInNumber.getNumber() + n) % 26;       //(p+n) mod 26
+                int cipherValue =  (letterInNumber.getNumber() + n) % 26;       
                 
                 if(cipherValue == 0)
                 {
@@ -137,7 +137,7 @@ public class PlaintextToCiphertext
                     {
                         LetterInNumber cipherInNumber = new LetterInNumber(ciphertextRotor[i][j]);
                     
-                        int cipherValue =  (cipherInNumber.getNumber() + i) % 26;       //(c+rowNum) mod 26
+                        int cipherValue =  (cipherInNumber.getNumber() + i + 1) % 26;       
                     
                         if(cipherValue == 0)
                         {
