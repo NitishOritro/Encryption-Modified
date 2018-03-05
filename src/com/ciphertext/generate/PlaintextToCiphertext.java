@@ -65,12 +65,6 @@ public class PlaintextToCiphertext
         int pointer = 0;
         
         int padding = ciphertext.length() % 16;
-        //System.out.println(padding);
-        
-        int paddIndexI = ciphertext.length() / 16; 
-        int padIndexJ = ciphertext.length() % 16;
-        
-        //System.out.println("Number "+paddIndexI+" "+padIndexJ);
         
         for(i=0;i<column;i++)
         {
@@ -78,7 +72,7 @@ public class PlaintextToCiphertext
             {
                 if(pointer <= ciphertext.length())
                 {
-                    if(j == row-1 && i >= padding)
+                    if(j == row-1 && i >= padding && padding != 0)
                     {
                         ciphertextRotor [j][i] = 'X';
                     }
@@ -122,7 +116,8 @@ public class PlaintextToCiphertext
             }
             //System.out.println();
         }
-        
+        int paddIndexI = ciphertext.length() / 16; 
+        int padIndexJ = ciphertext.length() % 16;
         for(i=0;i<row;i++)
         {
             for(j=0;j<column;j++)

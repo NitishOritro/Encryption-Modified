@@ -29,7 +29,7 @@ public class CryptographyProject
     {
         //String plaintext = "BANGLADESH BEAUTIFUL MY NUMBER 12#@&";
         String plaintext = "";
-       
+        System.out.println("Enter Your Plaintext");
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         plaintext = br.readLine();
         
@@ -39,10 +39,12 @@ public class CryptographyProject
         Random rand = new Random();
         int key = rand.nextInt(3) + 3;
         
+        //System.out.println("Plaintext length is "+plaintext.length());
+        
         PlaintextToCiphertext plaintextToCiphertext = new PlaintextToCiphertext();
         ciphertext = plaintextToCiphertext.generateCipherText(plaintext, key);
         int i,j,k,row=0,column=16;
-        
+   
         
         //Divide a row column accorfing to detect cipherRotor machine
         
